@@ -12,7 +12,7 @@ public class Main {
                 input = new InputStreamReader(new FileInputStream((args[0])));
             }
             WordCount counter = new WordCount();
-            counter.readfile(input);
+            counter.readwords(input);
 
             if(args.length == 2) {
                 output = new OutputStreamWriter(new FileOutputStream(args[1]));
