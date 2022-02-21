@@ -1,6 +1,7 @@
 public class WordElem implements Comparable<WordElem>{
     String word;
     int count;
+    double frequency = 0;
 
     public WordElem(String word, int count){
         this.word = word;

@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,7 +13,9 @@ public class Main {
                 input = new InputStreamReader(new FileInputStream((args[0])));
             }
             WordCount counter = new WordCount();
-            counter.readwords(input);
+            InputReader reader = new InputReader();
+            ArrayList<String> words = reader.readWords(input);
+            counter.addWordsToStat(words);
 
             if(args.length == 2) {
                 output = new OutputStreamWriter(new FileOutputStream(args[1]));
@@ -21,7 +24,8 @@ public class Main {
                 output = new OutputStreamWriter(new FileOutputStream("output.csv"));
             }
 
-            counter.writewords(output);
+            CSVWriter writer = new CSVWriter();
+            writer.writeWords(output, counter.getStats());
         }
         catch (FileNotFoundException e){
             e.printStackTrace();
