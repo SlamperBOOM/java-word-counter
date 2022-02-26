@@ -2,22 +2,22 @@ import java.util.*;
 import java.lang.*;
 
 public class WordCount{
-    private TreeSet<WordElem> wordfrequency = new TreeSet<WordElem>();
-    private HashSet<String> metwords = new HashSet<String>();
-    private int totalwords = 0;
+    private TreeSet<WordElem> wordFrequency = new TreeSet<WordElem>();
+    private HashSet<String> addedWords = new HashSet<String>();
+    private int totalWords = 0;
 
     public final TreeSet<WordElem> getStats(){
-        for(WordElem elem : wordfrequency) {
-            elem.frequency = elem.count / 1.0 / totalwords * 100;
+        for(WordElem elem : wordFrequency) {
+            elem.frequency = elem.count / 1.0 / totalWords * 100;
         }
-        return wordfrequency;
+        return wordFrequency;
     }
 
-    public void addWordsToStat(ArrayList<String> words){
+    public void addWordsToStat(List<String> words){
         for(String word : words) {
             WordElem elem = new WordElem(word, 1);
-            if (metwords.contains(word)) {
-                Iterator<WordElem> it = wordfrequency.iterator();
+            if (addedWords.contains(word)) {
+                Iterator<WordElem> it = wordFrequency.iterator();
                 WordElem elem1;
                 while (it.hasNext()) {
                     elem1 = it.next();
@@ -26,13 +26,13 @@ public class WordCount{
                         break;
                     }
                 }
-                wordfrequency.remove(elem);
+                wordFrequency.remove(elem);
                 elem.count++;
             } else {
-                metwords.add(word);
+                addedWords.add(word);
             }
-            wordfrequency.add(elem);
-            totalwords++;
+            wordFrequency.add(elem);
+            totalWords++;
         }
     }
 }

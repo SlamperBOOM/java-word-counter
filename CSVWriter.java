@@ -4,7 +4,7 @@ import java.io.Writer;
 import java.util.TreeSet;
 
 public class CSVWriter {
-    public void writeWords(OutputStreamWriter output, TreeSet<WordElem> words){
+    public void writeWords(Writer output, TreeSet<WordElem> words){
         Writer writer;
         try{
             writer = output;

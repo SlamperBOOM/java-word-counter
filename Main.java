@@ -3,8 +3,8 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        InputStreamReader input = null;
-        OutputStreamWriter output = null;
+        Reader input = null;
+        Writer output = null;
         try {
 
             if (args.length == 0) {
@@ -14,7 +14,7 @@ public class Main {
             }
             WordCount counter = new WordCount();
             InputReader reader = new InputReader();
-            ArrayList<String> words = reader.readWords(input);
+            List<String> words = reader.readWords(input);
             counter.addWordsToStat(words);
 
             if(args.length == 2) {
