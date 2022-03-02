@@ -6,7 +6,7 @@ public class WordCount{
     private HashSet<String> addedWords = new HashSet<String>();
     private int totalWords = 0;
 
-    public final TreeSet<WordElem> getStats(){
+    public final Set<WordElem> getStats(){
         for(WordElem elem : wordFrequency) {
             elem.frequency = elem.count / 1.0 / totalWords * 100;
         }

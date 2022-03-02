@@ -1,10 +1,8 @@
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.util.TreeSet;
+import java.io.*;
+import java.util.Set;
 
 public class CSVWriter {
-    public void writeWords(Writer output, TreeSet<WordElem> words){
+    public void writeWords(Writer output, Set<WordElem> words){
         Writer writer;
         try{
             writer = output;
